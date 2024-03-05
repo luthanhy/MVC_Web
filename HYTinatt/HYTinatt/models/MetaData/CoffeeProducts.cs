@@ -15,6 +15,7 @@ namespace HYTinatt.Models
             public int ProductID { get; set; }
             [Required(AllowEmptyStrings = false, ErrorMessage = "Can not be empty Name")]
             public string Name { get; set; }
+
             [Required(AllowEmptyStrings = false, ErrorMessage = "Can not be empty Price")]
             [Range(0, double.MaxValue, ErrorMessage = "Price is greater than 0")]
             public decimal Price { get; set; }
