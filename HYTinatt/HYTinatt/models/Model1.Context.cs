@@ -13,10 +13,10 @@ namespace HYTinatt.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DATA_MODEL : DbContext
+    public partial class DataEntities : DbContext
     {
-        public DATA_MODEL()
-            : base("name=DATA_MODEL")
+        public DataEntities()
+            : base("name=DataEntities")
         {
         }
     
@@ -25,9 +25,9 @@ namespace HYTinatt.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CoffeeProducts> CoffeeProducts { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<CoffeeProduct> CoffeeProducts { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

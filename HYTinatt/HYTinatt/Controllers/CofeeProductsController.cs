@@ -10,7 +10,7 @@ namespace HYTinatt.Controllers
     public class CofeeProductsController : Controller
     {
         // GET: CofeeProducts
-        DATA_MODEL data = new DATA_MODEL();
+        DataEntities data = new DataEntities();
         public ActionResult Index()
         {
             return View(data.CoffeeProducts.ToList());
