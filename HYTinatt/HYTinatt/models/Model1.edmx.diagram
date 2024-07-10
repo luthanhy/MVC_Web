@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="425c74e4e8594f429539835d65dade44" Name="Diagram1">
-        <EntityTypeShape EntityType="DATAModel.CoffeeProducts" Width="1.5" PointX="8.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DATAModel.Customers" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DATAModel.OrderDetails" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DATAModel.Orders" Width="1.5" PointX="2.5" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="DATAModel.FK__OrderDeta__Produ__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="DATAModel.FK__Orders__Customer__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="DATAModel.FK__OrderDeta__Order__3E52440B" ManuallyRouted="false" />
+      <Diagram DiagramId="dd29fb00cf9f4415864b0a7e7b7e89a1" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.CoffeeProduct" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Customer" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DataModel.FK__OrderDeta__Produ__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__Orders__Customer__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__OrderDeta__Order__2B3F6F97" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

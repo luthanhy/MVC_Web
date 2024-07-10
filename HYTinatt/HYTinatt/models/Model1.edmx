@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CoffeeProducts">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -41,7 +41,7 @@
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
-        <Association Name="FK__OrderDeta__Order__3E52440B">
+        <Association Name="FK__OrderDeta__Order__2B3F6F97">
           <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -53,7 +53,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__Produ__3F466844">
+        <Association Name="FK__OrderDeta__Produ__2C3393D0">
           <End Role="CoffeeProducts" Type="Self.CoffeeProducts" Multiplicity="0..1" />
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -65,7 +65,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__Customer__3B75D760">
+        <Association Name="FK__Orders__Customer__286302EC">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -77,20 +77,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DATAModelStoreContainer">
+        <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="CoffeeProducts" EntityType="Self.CoffeeProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__OrderDeta__Order__3E52440B" Association="Self.FK__OrderDeta__Order__3E52440B">
+          <AssociationSet Name="FK__OrderDeta__Order__2B3F6F97" Association="Self.FK__OrderDeta__Order__2B3F6F97">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Produ__3F466844" Association="Self.FK__OrderDeta__Produ__3F466844">
+          <AssociationSet Name="FK__OrderDeta__Produ__2C3393D0" Association="Self.FK__OrderDeta__Produ__2C3393D0">
             <End Role="CoffeeProducts" EntitySet="CoffeeProducts" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__Customer__3B75D760" Association="Self.FK__Orders__Customer__3B75D760">
+          <AssociationSet Name="FK__Orders__Customer__286302EC" Association="Self.FK__Orders__Customer__286302EC">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
@@ -99,17 +99,17 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CoffeeProducts">
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CoffeeProduct">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Produ__3F466844" FromRole="CoffeeProducts" ToRole="OrderDetails" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Produ__2C3393D0" FromRole="CoffeeProducts" ToRole="OrderDetails" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
@@ -117,9 +117,9 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__3B75D760" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__286302EC" FromRole="Customers" ToRole="Orders" />
         </EntityType>
-        <EntityType Name="OrderDetails">
+        <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderDetailID" />
           </Key>
@@ -128,10 +128,10 @@
           <Property Name="ProductID" Type="Int32" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="CoffeeProducts" Relationship="Self.FK__OrderDeta__Produ__3F466844" FromRole="OrderDetails" ToRole="CoffeeProducts" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__OrderDeta__Order__3E52440B" FromRole="OrderDetails" ToRole="Orders" />
+          <NavigationProperty Name="CoffeeProduct" Relationship="Self.FK__OrderDeta__Produ__2C3393D0" FromRole="OrderDetails" ToRole="CoffeeProducts" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__Order__2B3F6F97" FromRole="OrderDetails" ToRole="Orders" />
         </EntityType>
-        <EntityType Name="Orders">
+        <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
@@ -139,12 +139,12 @@
           <Property Name="CustomerID" Type="Int32" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK__Orders__Customer__3B75D760" FromRole="Orders" ToRole="Customers" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__3E52440B" FromRole="Orders" ToRole="OrderDetails" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__Customer__286302EC" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__2B3F6F97" FromRole="Orders" ToRole="OrderDetails" />
         </EntityType>
-        <Association Name="FK__OrderDeta__Produ__3F466844">
-          <End Role="CoffeeProducts" Type="Self.CoffeeProducts" Multiplicity="0..1" />
-          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+        <Association Name="FK__OrderDeta__Produ__2C3393D0">
+          <End Role="CoffeeProducts" Type="Self.CoffeeProduct" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CoffeeProducts">
               <PropertyRef Name="ProductID" />
@@ -154,9 +154,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Orders__Customer__3B75D760">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+        <Association Name="FK__Orders__Customer__286302EC">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="CustomerID" />
@@ -166,9 +166,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__Order__3E52440B">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
-          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+        <Association Name="FK__OrderDeta__Order__2B3F6F97">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Orders">
               <PropertyRef Name="OrderID" />
@@ -178,20 +178,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DATA_MODEL" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CoffeeProducts" EntityType="Self.CoffeeProducts" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" />
-          <EntitySet Name="Orders" EntityType="Self.Orders" />
-          <AssociationSet Name="FK__OrderDeta__Produ__3F466844" Association="Self.FK__OrderDeta__Produ__3F466844">
+        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CoffeeProducts" EntityType="Self.CoffeeProduct" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <AssociationSet Name="FK__OrderDeta__Produ__2C3393D0" Association="Self.FK__OrderDeta__Produ__2C3393D0">
             <End Role="CoffeeProducts" EntitySet="CoffeeProducts" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Orders__Customer__3B75D760" Association="Self.FK__Orders__Customer__3B75D760">
+          <AssociationSet Name="FK__Orders__Customer__286302EC" Association="Self.FK__Orders__Customer__286302EC">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Order__3E52440B" Association="Self.FK__OrderDeta__Order__3E52440B">
+          <AssociationSet Name="FK__OrderDeta__Order__2B3F6F97" Association="Self.FK__OrderDeta__Order__2B3F6F97">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
@@ -201,9 +201,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DATAModelStoreContainer" CdmEntityContainer="DATA_MODEL">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
           <EntitySetMapping Name="CoffeeProducts">
-            <EntityTypeMapping TypeName="DATAModel.CoffeeProducts">
+            <EntityTypeMapping TypeName="DataModel.CoffeeProduct">
               <MappingFragment StoreEntitySet="CoffeeProducts">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -212,7 +212,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="DATAModel.Customers">
+            <EntityTypeMapping TypeName="DataModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -222,7 +222,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="DATAModel.OrderDetails">
+            <EntityTypeMapping TypeName="DataModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -233,7 +233,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="DATAModel.Orders">
+            <EntityTypeMapping TypeName="DataModel.Order">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -256,7 +256,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
